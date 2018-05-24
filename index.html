@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="default">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-设计模式" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/24/设计模式/" class="article-date">
+  <time datetime="2018-05-24T01:58:58.101Z" itemprop="datePublished">2018-05-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="this-call和apply"><a href="#this-call和apply" class="headerlink" title="this/call和apply"></a>this/call和apply</h2><h3 id="this"><a href="#this" class="headerlink" title="this"></a>this</h3><p>this指向一个动态的函数执行环境。</p>
+<p>在一个普通的对象中，this的作用次域当然是对象本身</p>
+<p>在前端最常用的浏览器中，alert(this)的结果是window。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name=<span class="string">'dangjingtao'</span></span><br><span class="line">   </span><br><span class="line">   <span class="keyword">var</span> obj=&#123;</span><br><span class="line">       name:<span class="string">'djtao'</span>,</span><br><span class="line">       getName:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">           <span class="keyword">return</span> <span class="keyword">this</span>.name</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="built_in">console</span>.log(obj.getName()) <span class="comment">//djtao</span></span><br><span class="line">   <span class="keyword">var</span> a=obj.getName; <span class="comment">//抽离了使用环境</span></span><br><span class="line">   <span class="built_in">console</span>.log(a()) <span class="comment">//dangjingtao</span></span><br></pre></td></tr></table></figure>
+<p>现在来研究一个业务中常见的问题。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">id</span>=<span class="string">"hit-me"</span> <span class="attr">href</span>=<span class="string">"javascript:;"</span>&gt;</span>hit me<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">   </span><br><span class="line">   <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">       <span class="built_in">document</span>.getElementById(<span class="string">'hit-me'</span>).onclick=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">           alert(<span class="keyword">this</span>.id);<span class="comment">//hit-me</span></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">           <span class="keyword">var</span> callback=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">               alert(<span class="keyword">this</span>.id)<span class="comment">//undefined</span></span></span><br><span class="line"><span class="undefined">           &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">           callback();</span></span><br><span class="line"><span class="undefined">       &#125;</span></span><br><span class="line"><span class="undefined">   </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>处理方法是用一个变量存下<code>this</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">'hit-me'</span>).onclick=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            alert(<span class="keyword">this</span>.id);<span class="comment">//hit-me</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">var</span> _this=<span class="keyword">this</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">var</span> callback=<span class="function"><span class="keyword">function</span>(<span class="params">_</span>)</span>&#123;</span><br><span class="line">                alert(_this.id)<span class="comment">//undefined</span></span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            callback();</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<p>call用于绑定当前作用于</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name=<span class="string">'dangjingtao'</span>;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">var</span> obj=&#123;</span><br><span class="line">          name:<span class="string">'djtao'</span>,</span><br><span class="line">          getName:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">              <span class="keyword">return</span> <span class="keyword">this</span>.name</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      alert(obj.getName.call(<span class="keyword">this</span>)); <span class="comment">//dangjingtao</span></span><br></pre></td></tr></table></figure>
+<p>这里call(this)显然是把当前的作用域（window）绑定给了getName方法。</p>
+<h3 id="遗失的this"><a href="#遗失的this" class="headerlink" title="遗失的this"></a>遗失的this</h3><p>写一个简单的js选择器吧，比如<code>document.getElementById(&#39;div1&#39;)</code>，实在太长了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> getId=<span class="built_in">document</span>.getElementById</span><br><span class="line">   <span class="built_in">console</span>.log(getId(<span class="string">'div1'</span>))</span><br></pre></td></tr></table></figure>
+<p>运行报错。因为用getId引用了之后，getElementById失去了this。</p>
+<p>如何既能调用方法，又不丢失this？干货在于</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.getElementById=(<span class="function"><span class="keyword">function</span>(<span class="params">func</span>)</span>&#123;</span><br><span class="line">       <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">           <span class="keyword">return</span> func.apply(<span class="built_in">document</span>,<span class="built_in">arguments</span>)</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;)(<span class="built_in">document</span>.getElementById)</span><br><span class="line">    </span><br><span class="line">   <span class="keyword">var</span> getId=<span class="built_in">document</span>.getElementById</span><br><span class="line">   <span class="built_in">console</span>.log(getId(<span class="string">'div1'</span>))</span><br></pre></td></tr></table></figure>
+<h3 id="call和apply"><a href="#call和apply" class="headerlink" title="call和apply"></a>call和apply</h3><p>这两个方法非常重要。</p>
+<p>调用apply方法的时候,第一个参数是this的指向 , 第二个参数是一个数组或类数组集合 。apply把这个集合作为参数传递给被apply的函数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> func=<span class="function"><span class="keyword">function</span>(<span class="params">a,b,c</span>)</span>&#123;</span><br><span class="line">    alert([a,b,c]) <span class="comment">//输出[1,2,3]</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func.apply(<span class="literal">null</span>,[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])</span><br></pre></td></tr></table></figure>
+<p>call是apply的高级实现。当你知道参数数量时，也可以用call来写。比如<code>func.call(obj,&#39;a&#39;,&#39;b&#39;,&#39;c&#39;)</code>。</p>
+<p>非严格模式下，如果第一个参数为null，this还是指向默认的宿主。比如在浏览器中就是window。严格模式下则为null。</p>
+<h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><p>如果认为，call和apply作用只局限于改变this的指向，那就错了。你还可以获取别的属性方法，绑定</p>
+<p>来看看其它用法。</p>
+<h4 id="访问一类对象的内部数据"><a href="#访问一类对象的内部数据" class="headerlink" title="访问一类对象的内部数据"></a>访问一类对象的内部数据</h4><p>大部分高级浏览器都实现了<code>Function.protoype.bind</code>方法，用以绑定<code>this</code>。学习上述知识，能否手写模拟一个bind方法？</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.bind=<span class="function"><span class="keyword">function</span>(<span class="params">ctx</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> _this=<span class="keyword">this</span>;<span class="comment">//保存原函数</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> _this.apply(ctx,<span class="built_in">arguments</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 接下来试验一下</span></span><br><span class="line"><span class="keyword">var</span> name=<span class="string">'dangjingtao'</span></span><br><span class="line"><span class="keyword">var</span> obj=&#123;</span><br><span class="line">    name:<span class="string">'djtao'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> func=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.name</span><br><span class="line">&#125;.bind(obj)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(obj) <span class="comment">//控制台打印&#123;name:'djtao'&#125;</span></span><br><span class="line">func() <span class="comment">//弹出djtao</span></span><br></pre></td></tr></table></figure>
+<p>简单地说，我们在不为这个对象注册方法的前提下，为了一个对象实现了对内部私有变量的访问。</p>
+<h4 id="再丰富一点点"><a href="#再丰富一点点" class="headerlink" title="再丰富一点点"></a>再丰富一点点</h4><p>bind的简单实现并不足以满足功能。我想扩展bind方法并允许传入多个参数，并且还可以追加这个方法的参数。</p>
+<p>可以这么做。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.bind=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> _this=<span class="keyword">this</span>;<span class="comment">//保存原函数</span></span><br><span class="line">	<span class="keyword">var</span> ctx=[].shift.call(<span class="built_in">arguments</span>)<span class="comment">//拿到第一个参数（也就要是绑定的this）</span></span><br><span class="line">    <span class="keyword">var</span> args=[].slice.call(<span class="built_in">arguments</span>)<span class="comment">//其他参数转化为数组</span></span><br><span class="line">    <span class="comment">//下面返回一个新函数</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="comment">//执行这个新函数的时候，会把ctx作为this</span></span><br><span class="line">        <span class="comment">//并且组合两次分别传入的参数，作为该函数的参数</span></span><br><span class="line">        <span class="keyword">return</span> _this.apply(ctx,[].concat.call(args,[].slice.call(<span class="built_in">arguments</span>)))</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试结果</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj=&#123;</span><br><span class="line">	name:<span class="string">'djtao'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> func=<span class="function"><span class="keyword">function</span>(<span class="params">a,b,c,d</span>)</span>&#123;</span><br><span class="line">    alert(<span class="keyword">this</span>.name) <span class="comment">//djtao</span></span><br><span class="line">    alert([a,b,c,d]) <span class="comment">//输出1,2,3,4</span></span><br><span class="line">&#125;.bind(obj,<span class="number">1</span>,<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 执行</span></span><br><span class="line">func(<span class="number">3</span>,<span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="借用其他构造对象的方法"><a href="#借用其他构造对象的方法" class="headerlink" title="借用其他构造对象的方法"></a>借用其他构造对象的方法</h4><p>读书人的事，靠偷是不对的，应该是借。以下A是一个构造函数，拥有给某个人添加”是天才”后缀的处理过程。我要拿到A的属性。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> A=<span class="function"><span class="keyword">function</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name=name+<span class="string">'是天才'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以构造一个B对象来借</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> B=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    A.apply(<span class="keyword">this</span>,<span class="built_in">arguments</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//然后写一个方法。</span></span><br><span class="line">B.prototype.getName=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.name</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> b=<span class="keyword">new</span> B(<span class="string">'djtao'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(b.getName)<span class="comment">//结果是 djtao是天才</span></span><br></pre></td></tr></table></figure>
+<h4 id="再比如"><a href="#再比如" class="headerlink" title="再比如"></a>再比如</h4><p>arguments对象不是数组。但是我想把它们作为数组来处理，比如push。我想借用Array对象的push方法，怎么做？</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">Array</span>.prototype.push.call(<span class="built_in">arguments</span>,<span class="number">3</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">arguments</span>)</span><br><span class="line">&#125;)(<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>)</span><br><span class="line"><span class="comment">// 执行结果打印出1,2,3</span></span><br></pre></td></tr></table></figure>
+<p>更骚的操作是给对象也加个push方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a=&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">Array</span>.prototype.push.call(a,<span class="string">'0'</span>)</span><br><span class="line"></span><br><span class="line">   <span class="built_in">Array</span>.prototype.push.call(a,<span class="string">'第一个元素'</span>);</span><br><span class="line">   <span class="built_in">Array</span>.prototype.push.call(a,<span class="string">'第二个元素'</span>)</span><br><span class="line"></span><br><span class="line">   <span class="built_in">console</span>.log(a)</span><br></pre></td></tr></table></figure>
+<p><img src="https://images2018.cnblogs.com/blog/1011161/201805/1011161-20180523192036096-262954604.png" alt=""></p>
+<p>只要对象的属性可读写，length属性可读写，那就可以把push方法用到上面去。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/05/24/设计模式/" data-id="cjhjwu8y0000290u8zrcl7ir2" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-文章测试" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/24/文章测试/" class="article-date">
+  <time datetime="2018-05-24T01:58:07.466Z" itemprop="datePublished">2018-05-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="测试一下"><a href="#测试一下" class="headerlink" title="测试一下"></a>测试一下</h2>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/05/24/文章测试/" data-id="cjhjwu8xt000190u8bqtxrt8a" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/24/hello-world/" class="article-date">
+  <time datetime="2018-05-24T01:53:41.630Z" itemprop="datePublished">2018-05-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/24/hello-world/">Hello World</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/05/24/hello-world/" data-id="cjhjwu8xp000090u8iy9pkb74" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/05/24/设计模式/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/24/文章测试/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/24/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

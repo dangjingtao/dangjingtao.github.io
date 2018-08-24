@@ -15,7 +15,7 @@
 你对 动效设计概念 有一定的了解，既知道怎么做，也知道为什么要这么做；
 你需要具备熟练使用 git|github 的能力。
 
-计划本计划在https://github.com/dangjingtao/css-DynamicEffect更新维">
+计划本计划在https://github.com/dangjingtao/css-DynamicEffect  更">
     
 
     <!--Author-->
@@ -135,7 +135,7 @@
 <li>你对 动效设计概念 有一定的了解，既知道怎么做，也知道为什么要这么做；</li>
 <li>你需要具备熟练使用 <code>git|github</code> 的能力。</li>
 </ul>
-<h3 id="计划"><a href="#计划" class="headerlink" title="计划"></a>计划</h3><p>本计划在<a href="https://github.com/dangjingtao/css-DynamicEffect更新维护。" target="_blank" rel="noopener">https://github.com/dangjingtao/css-DynamicEffect更新维护。</a></p>
+<h3 id="计划"><a href="#计划" class="headerlink" title="计划"></a>计划</h3><p>本计划在<a href="https://github.com/dangjingtao/css-DynamicEffect" target="_blank" rel="noopener">https://github.com/dangjingtao/css-DynamicEffect</a>  更新维护。</p>
 <p>于<a href="https://dangjingtao.github.io/" target="_blank" rel="noopener">https://dangjingtao.github.io/</a> 处更新</p>
 <h2 id="No-1-从transition说起"><a href="#No-1-从transition说起" class="headerlink" title="No.1 从transition说起"></a>No.1 从transition说起</h2><hr>
 <p>下面进入第一个任务。</p>
@@ -145,7 +145,7 @@
 <li>理解语义化，合理地使用 HTML 标签来构建页面</li>
 </ul>
 <h3 id="任务描述"><a href="#任务描述" class="headerlink" title="任务描述"></a>任务描述</h3><ul>
-<li>通过 CSS transition 实现如下效果：<br><img src="https://images2018.cnblogs.com/blog/1011161/201808/1011161-20180823191608146-2066750363.gif" alt=""></li>
+<li>通过 CSS transition 实现如下效果：<br><img src="http://otqwpgzve.bkt.clouddn.com/ife%252F%E4%BB%BB%E5%8A%A1%E4%B8%80.gif" alt=""></li>
 <li>每次点击【切换样式】按钮的时候，出现视频 demo 所示的动画效果。</li>
 <li>学有余力的同学可以研究一下，如何通过修改贝塞尔曲线，让这个动效更贴近自然。</li>
 </ul>
@@ -156,7 +156,7 @@
 <li>代码中含有必要的注释；</li>
 </ul>
 <h3 id="解答"><a href="#解答" class="headerlink" title="解答"></a>解答</h3><p>效果</p>
-<p><img src="https://images2018.cnblogs.com/blog/1011161/201808/1011161-20180823204510409-1813445448.gif" alt=""></p>
+<p><img src="http://otqwpgzve.bkt.clouddn.com/1.gif" alt=""></p>
 <p>html</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"wrap"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"title"</span>&gt;</span>东尼大涛<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"line"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">"btn"</span> <span class="attr">type</span>=<span class="string">"button"</span>&gt;</span>hit me<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="selector-class">.wrap</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">130px</span>;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">100px</span> auto;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">    <span class="attribute">font-size</span>:<span class="number">30px</span>;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.title</span>&#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#666</span>;</span><br><span class="line">    <span class="attribute">transition</span>: color <span class="number">0.4s</span>;</span><br><span class="line">    <span class="attribute">-moz-transition</span>: color <span class="number">0.4s</span>;	<span class="comment">/* Firefox 4 */</span></span><br><span class="line">    <span class="attribute">-webkit-transition</span>: color <span class="number">0.4s</span>;	<span class="comment">/* Safari 和 Chrome */</span></span><br><span class="line">    <span class="attribute">-o-transition</span>: color <span class="number">0.4s</span>;	<span class="comment">/* Opera */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">       </span><br><span class="line"><span class="selector-class">.line</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">3px</span>;</span><br><span class="line">    <span class="attribute">margin</span>:<span class="number">10px</span> auto;</span><br><span class="line">    <span class="attribute">background</span>:<span class="built_in">rgb</span>(15, 132, 187);</span><br><span class="line">    <span class="attribute">transition</span>: width <span class="number">0.4s</span>;</span><br><span class="line">    <span class="attribute">-moz-transition</span>: width <span class="number">0.4s</span>;	<span class="comment">/* Firefox 4 */</span></span><br><span class="line">    <span class="attribute">-webkit-transition</span>: width <span class="number">0.4s</span>;	<span class="comment">/* Safari 和 Chrome */</span></span><br><span class="line">    <span class="attribute">-o-transition</span>: width <span class="number">0.4s</span>;	<span class="comment">/* Opera */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -184,13 +184,13 @@
 <p><code>transition-timing-function</code>属性]来规定过渡期间的速度如何变化，其值是 cubic-bezier 函数、或 steps 函数、或预定义关键字。</p>
 <p>1）cubic-bezier函数</p>
 <p>cubic-bezier 表示三次方贝赛尔曲线，它由 4 个控制点 P0、P1、P2、P3 来控制曲线的形状。每个控制点由坐标 (x, y) 来确定。P0 总是 (0, 0)，P3 总是 (1.0, 1.0)，P1和P2点则由 cubic-bezier 函数的四个参数来定义。如图 8‑14 所示：</p>
-<p><img src="https://images2018.cnblogs.com/blog/1011161/201808/1011161-20180823203223354-156836032.png" alt=""></p>
+<p><img src="http://otqwpgzve.bkt.clouddn.com/1011161-20180823203223354-156836032.png" alt=""></p>
 <p>(三次方贝塞尔曲线)</p>
 <p>cubic-bezier (x1, y1, x2, y2) 函数中，(x1, y1) 代表P1点，(x2, y2) 代表P2点，x1, y1, x2, y2 的值都必须在 [0, 1.0] 区间内，否则无效。</p>
 <p>2） steps函数</p>
 <p>steps 函数用来实现分步过渡的动画效果，即阶梯式过渡，而非平滑过渡。其格式如下：</p>
 <p>steps(n, [ start | end] ]?)</p>
-<p>其中，第一个参数 n 是一个自然数，意思是把一个动画的持续时间划分为 n 个相同的间隔，并在固定的间隔播放动画，直到走完整个动画；第二个参数可选，接受 start 和 end 两个值，指定在每个计时周期的起点或是终点发生跃变，默认值为 end。其原理如图 8‑15 所示：</p>
+<p>其中，第一个参数 n 是一个自然数，意思是把一个动画的持续时间划分为 n 个相同的间隔，并在固定的间隔播放动画，直到走完整个动画；第二个参数可选，接受 start 和 end 两个值，指定在每个计时周期的起点或是终点发生跃变，默认值为 end。其原理如图所示：</p>
 <p><img src="https://images2018.cnblogs.com/blog/1011161/201808/1011161-20180823202708721-1503039083.png" alt=""></p>
 <p>(steps函数原理)</p>
 <p>当指定的跃变点为 start 时，动画在每个计时周期的起点发生跃变（即图中空心圆变为实心圆 ）；当指定的跃变点为 end，动画在每个计时周期的终点发生跃变。</p>
@@ -287,6 +287,14 @@
     <h3>最近推送</h3>
     
         <p>
+            <a href="/2018/08/24/2/">还没有写标题</a>
+        </p>
+    
+        <p>
+            <a href="/2018/08/24/如何在一个钟之内吹自己会变形/">还没有写标题</a>
+        </p>
+    
+        <p>
             <a href="/2018/08/23/论如何在一个钟内学会做动效/">论如何在一个钟之内学会做动效</a>
         </p>
     
@@ -296,10 +304,6 @@
     
         <p>
             <a href="/2018/05/24/文章测试/">还没有写标题</a>
-        </p>
-    
-        <p>
-            <a href="/2018/05/24/hello-world/">Hello World</a>
         </p>
     
 </div>

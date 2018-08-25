@@ -10,7 +10,10 @@
 
     <!--Description-->
     
-        <meta name="description" content="测试一下">
+        <meta name="description" content="No.3 - CSS transition 和 CSS transform 配合制作动画任务目的
+深度理解掌握 transition-timing-function 以及它的意义
+学会配合使用 CSS transform 和CSS transition 制作流畅动画
+使用 CSS 伪元素触发过渡效果">
     
 
     <!--Author-->
@@ -20,7 +23,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="Hexo"/>
+        <meta property="og:title" content="论如何在一个小时内吹自己精通CSS动画"/>
     
 
     <!--Open Graph Description-->
@@ -31,7 +34,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website" />
+        <meta property="og:type" content="article" />
     
 
     <!--Page Cover-->
@@ -42,7 +45,7 @@
 
     <!-- Title -->
     
-    <title>Hexo</title>
+    <title>论如何在一个小时内吹自己精通CSS动画 - Hexo</title>
 
     <!-- Tachyons Core CSS -->
     <link rel="stylesheet" href="//unpkg.com/tachyons/css/tachyons.min.css">
@@ -104,8 +107,8 @@
     <!-- Title -->
     <div class="w-100 mw8 center vh-40 dt">
         <div class="dtc v-mid white">
-            <h1 class="f1-l f2-m tc tc-m tl-ns">还没有写标题</h1>
-            <p class="f4 fw3 pab-100px tc tc-m tl-ns">2018-05-24</p>
+            <h1 class="f1-l f2-m tc tc-m tl-ns">论如何在一个小时内吹自己精通CSS动画</h1>
+            <p class="f4 fw3 pab-100px tc tc-m tl-ns">2018-08-25</p>
         </div>
     </div>
 
@@ -125,7 +128,47 @@
                     
 
                     <!-- Main Post Content -->
-                    <h2 id="测试一下"><a href="#测试一下" class="headerlink" title="测试一下"></a>测试一下</h2>
+                    <h2 id="No-3-CSS-transition-和-CSS-transform-配合制作动画"><a href="#No-3-CSS-transition-和-CSS-transform-配合制作动画" class="headerlink" title="No.3 - CSS transition 和 CSS transform 配合制作动画"></a>No.3 - CSS transition 和 CSS transform 配合制作动画</h2><h3 id="任务目的"><a href="#任务目的" class="headerlink" title="任务目的"></a>任务目的</h3><ul>
+<li>深度理解掌握 transition-timing-function 以及它的意义</li>
+<li>学会配合使用 CSS transform 和CSS transition 制作流畅动画</li>
+<li>使用 CSS 伪元素触发过渡效果</li>
+<li>合理的使用 CSS 布局</li>
+</ul>
+<h3 id="任务描述"><a href="#任务描述" class="headerlink" title="任务描述"></a>任务描述</h3><ul>
+<li><p>在我们提供给你的 HTML 文件基础上，适当的添加 CSS transition 和 CSS transform 属性 ，实现视频 demo 中的效果；</p>
+</li>
+<li><p>鼠标 hover 上去的时候，出现小猫笑起来的动画；<br><a href="http://jadyoap.bj.bcebos.com/ife%2F%E4%BB%BB%E5%8A%A13.mov" target="_blank" rel="noopener">动画 demo</a></p>
+<p><a href="http://jadyoap.bj.bcebos.com/ife%2FcssCatAnimation.html" target="_blank" rel="noopener">下载.html 文件</a></p>
+</li>
+<li><p>transition 和transform 各项子属性的值可以自定 ；</p>
+</li>
+</ul>
+<h3 id="任务注意事项"><a href="#任务注意事项" class="headerlink" title="任务注意事项"></a>任务注意事项</h3><ul>
+<li>注意浏览器中的兼容性</li>
+<li>请注意代码风格的整齐、优雅</li>
+<li>HTML 及 CSS 代码结构清晰、规范</li>
+<li>代码中含有必要的注释</li>
+</ul>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><h4 id="腮红"><a href="#腮红" class="headerlink" title="腮红"></a>腮红</h4><p>透明度变化</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.face:hover .eye-wrap .face-red&#123;</span><br><span class="line">               transition:opacity 0.6s;</span><br><span class="line">               opacity: 1.0;</span><br><span class="line">           &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="眼睑"><a href="#眼睑" class="headerlink" title="眼睑"></a>眼睑</h4><p>纵向位移</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">face:hover .eye-wrap .eye-bottom&#123;</span><br><span class="line">                transition:transform 0.6s;</span><br><span class="line">                transform: translateY(-15px); </span><br><span class="line">            &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="眼珠"><a href="#眼珠" class="headerlink" title="眼珠"></a>眼珠</h4><p>变窄</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.face:hover .eye-wrap .eye .eye-circle .eye-core&#123;</span><br><span class="line">                transition:transform 0.6s;                </span><br><span class="line">                left: 50%;</span><br><span class="line">                transform:scaleX(0.8)</span><br><span class="line">            &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="左右嘴"><a href="#左右嘴" class="headerlink" title="左右嘴"></a>左右嘴</h4><p>变圆了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.face:hover .mouth-wrap .left&#123;</span><br><span class="line">                transition:border-radius 0.6s;                </span><br><span class="line">                border-radius:0% 40% 50% 50%;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            .face:hover .mouth-wrap .right&#123;</span><br><span class="line">                transition:border-radius 0.6s;                </span><br><span class="line">                border-radius:40% 0% 50% 50%;</span><br><span class="line">            &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="耳朵"><a href="#耳朵" class="headerlink" title="耳朵"></a>耳朵</h4><p>翘起来了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.face:hover~.ear-wrap .left &#123;</span><br><span class="line">                transition:transform 0.6s;</span><br><span class="line">                transform: rotate(-30deg);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            .face:hover~.ear-wrap .right &#123;</span><br><span class="line">                transition:transform 0.6s;</span><br><span class="line">                transform: rotate(30deg);</span><br><span class="line">            &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ul>
+<li><a href="https://www.cnblogs.com/jesse131/p/5441199.html" target="_blank" rel="noopener">CSS3 新特性兼容方法总结</a></li>
+<li><a href="http://www.css3beziercurve.net/" target="_blank" rel="noopener">CSS3贝塞尔曲线工具</a></li>
+<li><a href="http://www.w3school.com.cn/css3/css3_transition.asp" target="_blank" rel="noopener">CSS3 过渡</a></li>
+<li><a href="http://www.w3school.com.cn/cssref/pr_transform.asp" target="_blank" rel="noopener">CSS3 变形</a></li>
+<li><a href="https://www.w3.org/TR/css-transforms-1/" target="_blank" rel="noopener">CSS Transforms Module</a></li>
+<li><a href="https://www.cnblogs.com/afighter/p/5726888.html" target="_blank" rel="noopener">CSS3 中的变形 transform详解</a></li>
+<li><a href="https://codepen.io/Alireza29675/pen/KwgwMy" target="_blank" rel="noopener">CodePen 优秀动画示例</a></li>
+</ul>
+
                     
                     <!-- Tags Bottom -->
                     

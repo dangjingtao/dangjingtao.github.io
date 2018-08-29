@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="No.4 - 3D 空间的卡片翻转动效任务目的
+掌握 CSS transform 3D 变形
+使用 CSS 伪元素触发过渡效果
+熟悉 CSS transform 各项子属性
+
+任务描述
+根据 动效 demo 中的效果 、通过 CSS 实现一个卡片翻转的效果。
+动效 demo
+下载设计稿图片资源
+
+任">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="John Doe">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="如何在一个小时之内了解各种体位"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Hexo"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+    <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>如何在一个小时之内了解各种体位 - Hexo</title>
+
+    <!-- Tachyons Core CSS -->
+    <link rel="stylesheet" href="//unpkg.com/tachyons/css/tachyons.min.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Google Analytics -->
+    
+
+
+</head>
+
+
+<body>
+
+<!-- Main Content -->
+<!-- Banner -->
+<!-- Banner -->
+<div class="w-100 bg-1 ph5-ns ph3 text-light">
+    
+    <nav class="db dt-l w-100 mw8 center border-box pv3">
+        <a class="db dtc-l v-mid link dim w-100 w-25-l tc tl-l mb2 mb0-l white" href="/" title="Hexo">
+            <img src="http://www.codeblocq.com/assets/projects/hexo-theme-anodyne/assets/anodyne.svg" class="dib h3" alt="Hexo">
+        </a>
+        <div class="db dtc-l v-mid w-100 w-75-l tc tr-l">
+            
+                <a class="link dim f6 f5-l dib mr3 mr4-l white" 
+                    href="/" 
+                    title="主页">
+                    主页
+                </a>
+            
+                <a class="link dim f6 f5-l dib mr3 mr4-l white" 
+                    href="/archives" 
+                    title="文章列表">
+                    文章列表
+                </a>
+            
+                <a class="link dim f6 f5-l dib mr3 mr4-l white" 
+                    href="/about.html" 
+                    title="关于我">
+                    关于我
+                </a>
+            
+        </div>
+    </nav>
+
+    <!-- Title -->
+    <div class="w-100 mw8 center vh-40 dt">
+        <div class="dtc v-mid white">
+            <h1 class="f1-l f2-m tc tc-m tl-ns">如何在一个小时之内了解各种体位</h1>
+            <p class="f4 fw3 pab-100px tc tc-m tl-ns">2018-08-29</p>
+        </div>
+    </div>
+
+    <!-- Icon -->
+    <div class="relative w-100 mw8 center white dn dn-m db-ns">
+        <i class="header-icon fa fa-file-text-o"></i>
+    </div>
+</div>
+
+<!-- Content -->
+<div class="w-100 ph2 ph4-m ph5-l mv5 mv6-l">
+    <div class="content">
+        <div class="mw8 center">
+            <div class="cf">
+                <div class="fl w-100 w-70-l mw7 left fw3 lh-copy pr4-ns pr0-m post-content">
+                    <!-- Tags Vertical -->
+                    
+
+                    <!-- Main Post Content -->
+                    <h2 id="No-4-3D-空间的卡片翻转动效"><a href="#No-4-3D-空间的卡片翻转动效" class="headerlink" title="No.4 - 3D 空间的卡片翻转动效"></a>No.4 - 3D 空间的卡片翻转动效</h2><h3 id="任务目的"><a href="#任务目的" class="headerlink" title="任务目的"></a>任务目的</h3><ul>
+<li>掌握 CSS transform 3D 变形</li>
+<li>使用 CSS 伪元素触发过渡效果</li>
+<li>熟悉 CSS transform 各项子属性</li>
+</ul>
+<h3 id="任务描述"><a href="#任务描述" class="headerlink" title="任务描述"></a>任务描述</h3><ul>
+<li>根据 动效 demo 中的效果 、通过 CSS 实现一个卡片翻转的效果。</li>
+<li><a href="http://jadyoap.bj.bcebos.com/ife%2F%E4%BB%BB%E5%8A%A1%E5%9B%9B.mov" target="_blank" rel="noopener">动效 demo</a></li>
+<li><a href="http://jadyoap.bj.bcebos.com/ife%2F%E4%BB%BB%E5%8A%A1%E5%9B%9B%E8%AE%BE%E8%AE%A1%E7%A8%BF.zip" target="_blank" rel="noopener">下载设计稿图片资源</a></li>
+</ul>
+<h3 id="任务注意事项"><a href="#任务注意事项" class="headerlink" title="任务注意事项"></a>任务注意事项</h3><ul>
+<li>注意不同浏览器中的兼容性</li>
+<li>请注意代码风格的整齐、优雅</li>
+<li>HTML 及 CSS 代码结构清晰、规范</li>
+<li>代码中含有必要的注释</li>
+</ul>
+<h3 id="原理分析"><a href="#原理分析" class="headerlink" title="原理分析"></a>原理分析</h3><p>首先认识空间直角坐标系。（和高中略有不同）</p>
+<p><img src="https://image.zhangxinxu.com/image/blog/201209/3d_axes.png" alt="3D变换坐标图解 张鑫旭-鑫空间-鑫生活"> </p>
+<p>CSS3中的3D变换效果，本质上就是各种体位的变换。 </p>
+<h4 id="rotateX-rotateY-rotateZ"><a href="#rotateX-rotateY-rotateZ" class="headerlink" title="rotateX, rotateY, rotateZ"></a>rotateX, rotateY, rotateZ</h4><p>3D transform中有下面这三个方法：</p>
+<ul>
+<li><code>rotateX( angle )</code></li>
+<li><code>rotateY( angle )</code></li>
+<li><code>rotateZ( angle )</code></li>
+</ul>
+<p>对应的是如下翻转：（图片来自CSS大神张鑫旭博客）</p>
+<p> <img src="https://image.zhangxinxu.com/image/blog/201209/2012-09-05_175406.png" alt="transform rotateX(45deg)的效果图 张鑫旭-鑫空间-鑫生活"></p>
+<p> <img src="https://image.zhangxinxu.com/image/blog/201209/2012-09-05_175458.png" alt="transform rotateY(45deg)的效果图 张鑫旭-鑫空间-鑫生活"> </p>
+<p><img src="https://image.zhangxinxu.com/image/blog/201209/2012-09-05_175551.png" alt="transform rotateZ(45deg)的效果图 张鑫旭-鑫空间-鑫生活"> </p>
+<h4 id="perspective属性：景深"><a href="#perspective属性：景深" class="headerlink" title="perspective属性：景深"></a>perspective属性：景深</h4><p><code>perspective</code>（透视）属性的存在与否决定了你所看到的是2次元的还是3次元的，也就是是2D transform还是3D transform. 这不难理解，没有透视，不成3D.</p>
+<p>我们初中学美术，或者学建筑的同学肯定接触过透视的一些东西：<br><img src="https://image.zhangxinxu.com/image/blog/201209/toushi.png" alt="3D透视 张鑫旭-鑫空间-鑫生活"> <img src="https://image.zhangxinxu.com/image/blog/201209/toushi2.png" alt="3D透视 张鑫旭-鑫空间-鑫生活"></p>
+<p>不过，CSS3 3D transform中的透视的透视点与上面两张示例图是不同的：CSS3 3D transform的<strong>透视点是在浏览器的前方</strong>。</p>
+<p>或者这么理解吧：显示器中3D效果元素的透视点在显示器的上方（不是后面），近似就是我们眼睛所在方位！</p>
+<p>比方说，一个1680像素宽的显示器中有张美女图片，应用了3D transform，同时，该元素或该元素父辈元素设置的<code>perspective</code>大小为2000像素。则这张美女多呈现的3D效果就跟你本人在1.2个显示器宽度的地方(1680*1.2≈2000)看到的真实效果一致。</p>
+<p><img src="https://image.zhangxinxu.com/image/blog/201209/3d-distance.jpg" alt="1680宽度像素显示器与3D transform视角大小示意 张鑫旭-鑫空间-鑫生活"></p>
+<h4 id="ranslateZ帮你寻找透视位置"><a href="#ranslateZ帮你寻找透视位置" class="headerlink" title="ranslateZ帮你寻找透视位置"></a>ranslateZ帮你寻找透视位置</h4><p>如果说<code>rotateX</code>/<code>rotateY</code>/<code>rotateZ</code>可以帮助理解三维坐标，则<code>translateZ</code>则可以帮你理解透视位置。</p>
+<p>我们都知道近大远小的道理，对于没有<code>rotateX</code>以及<code>rotateY</code>的元素，<code>translateZ</code>的功能就是让元素在自己的眼前或近或远。比方说，我们设置元素<code>perspective</code>为201像素，如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">perspective: 201px;</span><br></pre></td></tr></table></figure>
+<p>则其子元素，设置的<code>translateZ</code>值越小，则子元素大小越小（因为元素远去，我们眼睛看到的就会变小）；<code>translateZ</code>值越大，该元素也会越来越大，当<code>translateZ</code>值非常接近201像素，但是不超过201像素的时候（如200像素），该元素的大小就会撑满整个屏幕（如果父辈元素没有类似overflow:hidden的限制的话）。因为这个时候，子元素正好移到了你的眼睛前面，所谓“一叶蔽目，不见泰山”，就是这么回事。当<code>translateZ</code>值再变大，超过201像素的时候，该元素看不见了——这很好理解：我们是看不见眼睛后面的东西的！</p>
+<p>如下截图：-100时候最小，200时候超级满屏（垂直方向因特殊布局限制没有显示），250的时候因为元素已经在视点之外，因此是一片空白（看不见）。<br><img src="https://image.zhangxinxu.com/image/blog/201209/2012-09-05_220540.png" alt="translateZ -100像素最远距离最小显示 张鑫旭-鑫空间-鑫生活"> <img src="https://image.zhangxinxu.com/image/blog/201209/2012-09-05_220622.png" alt="translateZ 200像素时候超级大的显示"> <img src="https://image.zhangxinxu.com/image/blog/201209/2012-09-05_220711.png" alt="translateZ为250像素时候元素在视区之外，因此看不见是空白 张鑫旭-鑫空间-鑫生活"></p>
+<h4 id="perspective属性及其两种书写"><a href="#perspective属性及其两种书写" class="headerlink" title="perspective属性及其两种书写"></a>perspective属性及其两种书写</h4><p><code>perspective</code>属性有两种书写形式，一种用在舞台元素上（动画元素们的共同父辈元素）；第二种就是用在当前动画元素上，与transform的其他属性写在一起。如下代码示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.stage &#123;</span><br><span class="line">    perspective: 600px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以及：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#stage .box &#123;</span><br><span class="line">    transform: perspective(600px) rotateY(45deg);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结果如下缩略图：<br><img src="https://image.zhangxinxu.com/image/blog/201209/2012-09-05_222328.png" alt="CSS3 transform perspective两种书写形式demo效果截图 "></p>
+<p>从上图我们貌似可以看到，虽然书写的形式，属性名称不一致，但是，效果貌似是一样的~~果真是这样吗？？？</p>
+<p>实际上不然，上面的demo上下两个效果之所以会一样，是因为舞台上只有一个元素，因此，发生了巧合，其正好表现一样了。如果，如果舞台上有很多个元素，则两种书写形式的表现差异就会立马显示出来了！</p>
+<p>好吧，图中的效果其实不难理解。上面舞台整个作为透视元素，因此，显然，我们看到的每个子元素的形体都是不一样的；而下面，每个元素都有一个自己的视点，因此，显然，因为rotateY的角度是一样的，因此，看上去的效果也就一模一样了！</p>
+<p><strong>关于Chrome浏览器以及透视盲区</strong><br>前面一排门，每个门都是1米，你距离门2米，显示，当所有门都开了45°角的时候，此时，距离中间门右侧的第二个门正好与你的视线平行，这个门的门面显然就什么也看不到。这就是为什么上面右侧第三个门一片空白的元素——特定的视角以及距离形成的视觉盲区。</p>
+<h4 id="perspective-origin：透视中心"><a href="#perspective-origin：透视中心" class="headerlink" title="perspective-origin：透视中心"></a>perspective-origin：透视中心</h4><p><code>perspective-origin</code>这个属性超级好理解，表示你眼睛看的位置。默认就是所看舞台或元素的中心。有时候观众感兴趣的不一定是几何中心，而有可能其他一些地方。比方说：<br><img src="https://image.zhangxinxu.com/image/blog/201209/what-are-u-looking.png" alt="不同视线落地位置对应不同的perspective-origin值"></p>
+<p>一图胜千言。千言不够再来一张吧。</p>
+<p>下面为立方体的实际应用透视效果图：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">perspective-origin: 25% 75%;</span><br></pre></td></tr></table></figure>
+<p><img src="https://image.zhangxinxu.com/image/blog/201209/perspective02.png" alt="立方体不同透视角度的效果 张鑫旭-鑫空间-鑫生活"></p>
+<h4 id="transform-style-preserve-3d"><a href="#transform-style-preserve-3d" class="headerlink" title="transform-style: preserve-3d"></a>transform-style: preserve-3d</h4><p><code>transform-style</code>属性也是3D效果中经常使用的，其两个参数，<code>flat|preserve-3d</code>. 前者<code>flat</code>为默认值，表示平面的；后者<code>preserve-3d</code>表示3D透视。</p>
+<p><code>preserve-3d</code>符合我们真实世界的思维认识。比方说，你让妹子右转了45度，此时妹子脑袋左转45度想你吐舌卖萌，妹子的脸蛋应该和你是面对面平行的。<br><img src="https://image.zhangxinxu.com/image/blog/201209/tuidao-y.jpg" alt="妹子推到与transform rotateY 张鑫旭-鑫空间-鑫生活"><br>应用<code>transform-style: preserve-3d</code>声明的元素确实是这样表现的，但是，如果使用默认的<code>flat</code>值，其效果表现——恕我想象力有限——想不通：妹子的脸还是左转45度的，同时脑袋似乎移到了身体以外的地方。</p>
+<p>因此，基本上，我们想要根据现实经验实现一些3D效果的时候，<code>transform-style: preserve-3d</code>是少不了的。一般而言，该声明应用在3D变换的兄弟元素们的父元素上，也就是舞台元素。</p>
+<h4 id="backface-visibility：背面是否可见"><a href="#backface-visibility：背面是否可见" class="headerlink" title="backface-visibility：背面是否可见"></a>backface-visibility：背面是否可见</h4><p>在显示世界中，我们无法穿过软妹A看到其身后的软妹B或C或D；但是，在CSS3的3D世界中，默认情况下，我们是可以看到背后的元素<br>因此，为了切合实际，常会这样设置，使后面元素不可见：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">backface-visibility:hidden;</span><br></pre></td></tr></table></figure>
+<h3 id="任务实现"><a href="#任务实现" class="headerlink" title="任务实现"></a>任务实现</h3><p>这种反转效果可以用在卡牌上。也常见于网站logo。主要是Y轴旋转的应用。</p>
+<p>布局非常简单：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"wrap"</span>&gt;</span><span class="comment">&lt;!--舞台--&gt;</span></span><br><span class="line">               <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"front page"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">               <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"behind page"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>css的主要思路是</p>
+<ul>
+<li>在舞台设置好基本属性。</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.wrap</span>&#123;</span><br><span class="line">	<span class="attribute">width</span>:<span class="number">250px</span>;</span><br><span class="line">	<span class="attribute">height</span>: <span class="number">350px</span>;</span><br><span class="line">	<span class="attribute">margin</span>:<span class="number">100px</span> auto;</span><br><span class="line">	<span class="attribute">position</span>: relative;</span><br><span class="line">	<span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">	<span class="attribute">transform-style</span>: preserve-<span class="number">3</span>d; <span class="comment">/*开启3D空间*/</span></span><br><span class="line">	<span class="attribute">perspective</span>: <span class="number">1800px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>初始状态，正面在上（初始状态未翻转），背面在下（初始状态为Y翻转180°）</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.page</span>&#123;</span><br><span class="line">                <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">                <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">                <span class="attribute">position</span>: absolute;</span><br><span class="line">                <span class="attribute">top</span>:<span class="number">0</span>;</span><br><span class="line">                <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">                <span class="attribute">background-repeat</span>: no-repeat;</span><br><span class="line">                <span class="attribute">background-position</span>: center center;</span><br><span class="line">                <span class="attribute">backface-visibility</span>: hidden;<span class="comment">/*如果不隐藏，背面是可见的*/</span></span><br><span class="line">                <span class="attribute">transition</span>: <span class="number">1s</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="selector-class">.front</span>&#123; </span><br><span class="line">                <span class="attribute">background</span>: <span class="built_in">url</span>(<span class="string">'img/front.jpg'</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="selector-class">.behind</span>&#123;</span><br><span class="line">                <span class="attribute">background</span>: <span class="built_in">url</span>(<span class="string">'img/behind.jpg'</span>);</span><br><span class="line">                <span class="attribute">transform</span>: <span class="built_in">rotateY</span>(-180deg); <span class="comment">/*背面的初始状态是反转的*/</span>    </span><br><span class="line">            &#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>基本设置完成之后，运动一气呵成。</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.wrap</span><span class="selector-pseudo">:hover</span> <span class="selector-class">.front</span>&#123;</span><br><span class="line">           <span class="attribute">transform</span>: <span class="built_in">rotateY</span>(180deg);</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="selector-class">.wrap</span><span class="selector-pseudo">:hover</span> <span class="selector-class">.behind</span>&#123;</span><br><span class="line">           <span class="attribute">transform</span>: <span class="built_in">rotateY</span>(0deg);</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ul>
+<li><a href="https://www.cnblogs.com/jesse131/p/5441199.html" target="_blank" rel="noopener">CSS3 新特性兼容方法总结</a></li>
+<li><a href="http://www.zhangxinxu.com/wordpress/2012/09/css3-3d-transform-perspective-animate-transition/" target="_blank" rel="noopener">CSS3 3D transform 详解</a></li>
+<li><a href="http://www.w3school.com.cn/css3/css3_3dtransform.asp" target="_blank" rel="noopener">CSS Transforms 3D</a></li>
+<li><a href="http://www.w3school.com.cn/css3/css3_transition.asp" target="_blank" rel="noopener">CSS3 过渡</a></li>
+<li><a href="http://www.w3school.com.cn/cssref/pr_transform.asp" target="_blank" rel="noopener">CSS3 变形</a></li>
+<li><a href="https://www.w3.org/TR/css-transforms-1/" target="_blank" rel="noopener">CSS Transforms Module</a></li>
+<li><a href="https://www.cnblogs.com/afighter/p/5726888.html" target="_blank" rel="noopener">CSS3中的变形 transform详解</a></li>
+<li><a href="https://codepen.io/Alireza29675/pen/KwgwMy" target="_blank" rel="noopener">codepen 优秀动画示例</a></li>
+</ul>
+
+                    
+                    <!-- Tags Bottom -->
+                    
+
+                    <!-- Comments -->
+                    
+
+
+
+                </div>
+                <div class="fl w-100 w-30-l center fw3 lh-copy pl4-ns tl black-50">
+                    
+                    <hr class="dn-l mw4 black-50 mt5" />
+                    
+                    <!-- Widget 1: About -->
+                    <div class="mt5 mt0-l">
+    <article class="dt db-l mw8 mw8-m mw5-ns center ml0-l bg-white mv3">
+        <div class="dn dtc-m db-l v-mid tc pr4 pr0-l" style="min-width: 6rem;">
+            <img src="http://opz0vlur3.bkt.clouddn.com/classarragementQQ图片20180629113405&8995" class="mb4-l br-100 h3 w3 h4-l w4-l dib" title="John Doe">
+        </div>
+        <div class="dtc db-l v-mid lh-copy measure center f6 black-50 tj">
+            我的名字是：党靖涛
+        </div>
+    </article>
+</div>
+
+                    <hr class="dn-l mw4 black-50 mt5" />
+                    
+                    <!-- Widget 2: Categories -->
+                    
+
+                    <!-- Widget 3: Recent Posts -->
+                    <div class="mt5 tc tl-l">
+    <h3>最近推送</h3>
+    
+        <p>
+            <a href="/2018/08/29/4/">如何在一个小时之内了解各种体位</a>
+        </p>
+    
+        <p>
+            <a href="/2018/08/25/3/">论如何在一个小时内吹自己精通CSS动画</a>
+        </p>
+    
+        <p>
+            <a href="/2018/08/24/2/">论如何在一个小时之内学会变形</a>
+        </p>
+    
+        <p>
+            <a href="/2018/08/23/论如何在一个钟内学会做动效/">论如何在一个钟之内学会做动效</a>
+        </p>
+    
+        <p>
+            <a href="/2018/05/24/设计模式/">设计模式</a>
+        </p>
+    
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Footer -->
+<div class="bg-1 ph2 ph5-ns pv5">
+        <div class="mv8">
+            <div class="center tc">
+                
+                    <div class="dib mh3">
+                        <a class="f3 f2-ns white dim" href="https://twitter.com/?lang=en" target="_blank">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </div>
+                
+                    <div class="dib mh3">
+                        <a class="f3 f2-ns white dim" href="https://www.facebook.com/" target="_blank">
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </div>
+                
+                    <div class="dib mh3">
+                        <a class="f3 f2-ns white dim" href="https://dribbble.com/" target="_blank">
+                            <i class="fa fa-dribbble"></i>
+                        </a>
+                    </div>
+                
+                    <div class="dib mh3">
+                        <a class="f3 f2-ns white dim" href="https://github.com/klugjo/hexo-theme-anodyne" target="_blank">
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </div>
+                
+                    <div class="dib mh3">
+                        <a class="f3 f2-ns white dim" href="https://plus.google.com/" target="_blank">
+                            <i class="fa fa-google-plus"></i>
+                        </a>
+                    </div>
+                
+                    <div class="dib mh3">
+                        <a class="f3 f2-ns white dim" href="https://www.behance.net/" target="_blank">
+                            <i class="fa fa-behance"></i>
+                        </a>
+                    </div>
+                
+                    <div class="dib mh3">
+                        <a class="f3 f2-ns white dim" href="https://500px.com/" target="_blank">
+                            <i class="fa fa-500px"></i>
+                        </a>
+                    </div>
+                
+                    <div class="dib mh3">
+                        <a class="f3 f2-ns white dim" href="mailto:test@example.com" target="_blank">
+                            <i class="fa fa-envelope"></i>
+                        </a>
+                    </div>
+                
+                    <div class="dib mh3">
+                        <a class="f3 f2-ns white dim" href="/#" target="_blank">
+                            <i class="fa fa-rss"></i>
+                        </a>
+                    </div>
+                
+            </div>
+            <div class="f6 f5-ns center tc white pt5 fw3">
+                copyright@2018.dangjingtao All right reserved.
+            </div>
+        </div>
+    </div>
+
+<!-- After Footer -->
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
